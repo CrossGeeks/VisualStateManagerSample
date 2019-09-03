@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="VisualStateManagerSample.MainPage">
+
+    <StackLayout Padding="0,40,0,0">
+         <Label Text="My month planner"
+                FontAttributes="Bold"
+                TextColor="Black"
+                HorizontalOptions="CenterAndExpand"/>
+
+          <ScrollView VerticalScrollBarVisibility="Never"
+                      Orientation="Horizontal">
+                <StackLayout BackgroundColor="Black"
+                             HorizontalOptions="Start"
+                             Padding="20"
+                             x:Name="mainLayout"
+                             Orientation="Horizontal">
+                </StackLayout>
+        </ScrollView>
+
+        <ScrollView>
+            <StackLayout>
+                   <BindableLayout.ItemsSource>
+                     <x:Array Type="{x:Type x:String}">
+                        <x:String>Go to the doctor</x:String>
+                        <x:String>Finish Xamarin Sample</x:String>
+                        <x:String>Call Mr.P</x:String>
+                        <x:String>Finish HW</x:String>
+                        <x:String>Work on YW</x:String>
+                      </x:Array>
+                </BindableLayout.ItemsSource>
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding .}"
+                                       Margin="20,0"/>
+                                <BoxView HorizontalOptions="FillAndExpand"
+                                         HeightRequest="1"
+                                         Color="LightGray"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
+
+        <Entry Placeholder="Add"/>
+   </StackLayout>
+</ContentPage>
